@@ -138,7 +138,7 @@ public class Weapon : MonoBehaviour {
             case WeaponType.tron:
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
-                float currentTime = Time.time;
+                
                 
 
                 break;
