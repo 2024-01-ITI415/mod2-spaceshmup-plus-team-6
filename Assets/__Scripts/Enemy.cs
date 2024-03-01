@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Enemy : MonoBehaviour {
 
@@ -89,6 +90,9 @@ public class Enemy : MonoBehaviour {
                 health -= Main.GetWeaponDefinition(p.type).damageOnHit;
                 if(health <= 0)
                 {
+                    //TextMeshProUGUI tmp = GetComponent<TextMeshProUGUI>();
+                    //tmp.text = "Score: " + this.score.ToString();
+                    
                     // Tell the Main singleton that this ship was destroyed
                     if (!notifiedOfDestruction)
                     {

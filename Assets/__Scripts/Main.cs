@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
+using TMPro;
 
 public class Main : MonoBehaviour {
 
@@ -18,11 +21,17 @@ public class Main : MonoBehaviour {
     {
         WeaponType.blaster, WeaponType.blaster, WeaponType.spread, WeaponType.shield
     };
+    public TextMeshProUGUI tmp;
 
     private BoundsCheck bndCheck;
+    
+    private int bossThreshold;
+    private bool isBossMode;
+
 
     public void ShipDestroyed( Enemy e)
     {
+        tmp.text = "Score: " + e.score.ToString();
         // Potentially generate a PowerUp
         if (Random.value <= e.powerUpDropChance)
         {
@@ -39,6 +48,10 @@ public class Main : MonoBehaviour {
             // Set it to the position of the destroyed ship
             pu.transform.position = e.transform.position;
         }
+        //score += e.score;
+        //string strScore = score.ToString();
+        //tmp.SetText("Score: " + strScore);
+
     }
 
     private void Awake()
