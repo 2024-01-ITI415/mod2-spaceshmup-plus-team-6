@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 /// <summary>
@@ -15,7 +16,8 @@ public enum WeaponType
     phaser, // [NI] Shots that move in waves
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
-    shield // Raise shieldLevel
+    shield, // Raise shieldLevel
+    tron
 }
 
 /// <summary>
@@ -131,6 +133,14 @@ public class Weapon : MonoBehaviour {
                 p = MakeProjectile(); // Make left Projectile
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.rigid.velocity = p.transform.rotation * vel;
+                break;
+
+            case WeaponType.tron:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                float currentTime = Time.time;
+                
+
                 break;
         }
     }
