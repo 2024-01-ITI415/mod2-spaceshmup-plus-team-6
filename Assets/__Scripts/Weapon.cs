@@ -15,7 +15,12 @@ public enum WeaponType
     phaser, // [NI] Shots that move in waves
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
-    shield // Raise shieldLevel
+    shield, // Raise shieldLevel
+<<<<<<< Updated upstream
+    
+=======
+    fan, // shoots a cone of shots
+>>>>>>> Stashed changes
 }
 
 /// <summary>

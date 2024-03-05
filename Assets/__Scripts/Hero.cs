@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
+
 
 public class Hero : MonoBehaviour {
     static public Hero S; // Singleton
@@ -14,6 +17,7 @@ public class Hero : MonoBehaviour {
     public GameObject projectilePrefab;
     public float projectileSpeed = 40;
     public Weapon[] weapons;
+    public int bombcount = 0;
 
     [Header("Set Dynamically")]
     [SerializeField]
@@ -27,7 +31,11 @@ public class Hero : MonoBehaviour {
     // Create a WeaponFireDelegate field named fireDelegate.
     public WeaponFireDelegate fireDelegate;
 
-	void Start()
+    
+    
+
+
+    void Start()
     {
         if (S == null)
         {

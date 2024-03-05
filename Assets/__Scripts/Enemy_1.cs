@@ -11,6 +11,7 @@ public class Enemy_1 : Enemy {
     // sine wave width in meters
     public float waveWidth = 4;
     public float waveRotY = 45;
+    
 
     private float x0; // The initial x value of pos
     private float birthTime;
