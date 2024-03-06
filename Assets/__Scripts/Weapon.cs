@@ -16,13 +16,7 @@ public enum WeaponType
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
     shield, // Raise shieldLevel
-<<<<<<< Updated upstream
-    
-=======
-    fan, // shoots a cone of shots
->>>>>>> Stashed changes
 }
-
 /// <summary>
 /// The WeaponDefinition class allows you to set the properties
 /// of a specific weapon in the Inspector. The Main class has
