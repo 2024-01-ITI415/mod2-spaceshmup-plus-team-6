@@ -410,6 +410,7 @@ MonoBehaviour:
     type: 3}
   powerUpFrequency: 01000000010000000200000006000000
   tmp: {fileID: 323845909}
+  bossScore: 200
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0

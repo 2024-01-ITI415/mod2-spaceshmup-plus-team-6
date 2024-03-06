@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8657216017519062890}
   - component: {fileID: 7725870247667906730}
   - component: {fileID: 5843905708510690545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 5422425217393256818}
   - component: {fileID: 1290493246481547263}
   - component: {fileID: 8936049957045296924}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 2249741036367193120}
   - component: {fileID: 8738874062026492714}
   - component: {fileID: 8171883910343696183}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,9 +327,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7908854684900063276}
   - component: {fileID: 8375232784510384926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 2550953925078990561}
   - component: {fileID: 681874701416557974}
   - component: {fileID: 741140127854487323}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
