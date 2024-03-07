@@ -17,7 +17,8 @@ public enum WeaponType
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
     shield, // Raise shieldLevel
-    tron
+    tron,
+    large
 }
 
 /// <summary>
@@ -138,9 +139,12 @@ public class Weapon : MonoBehaviour {
             case WeaponType.tron:
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
-                
-                
+                break;
 
+            case WeaponType.large:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localScale = new Vector3(3f, 3f, 3f);
                 break;
         }
     }

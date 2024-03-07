@@ -41,6 +41,13 @@ public class Projectile : MonoBehaviour {
         {
             Destroy(gameObject, 1);
         }
+        if (_type == WeaponType.large)
+        {
+            
+            Vector3 v = rigid.velocity;
+            v.y = v.y + 1;
+            rigid.velocity = v;
+        }
     }
 
     ///<summary>
