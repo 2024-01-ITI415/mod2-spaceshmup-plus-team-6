@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour {
         {
             
             Vector3 v = rigid.velocity;
-            v.y = v.y + 1;
+            v.y = v.y + (float)0.5;
             rigid.velocity = v;
         }
     }
