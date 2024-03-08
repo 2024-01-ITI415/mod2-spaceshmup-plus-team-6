@@ -15,7 +15,10 @@ public enum WeaponType
     phaser, // [NI] Shots that move in waves
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
-    shield // Raise shieldLevel
+    shield, // Raise shieldLevel
+    tron,
+    large,
+    bomb
 }
 
 /// <summary>
@@ -131,6 +134,17 @@ public class Weapon : MonoBehaviour {
                 p = MakeProjectile(); // Make left Projectile
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.rigid.velocity = p.transform.rotation * vel;
+                break;
+
+            case WeaponType.tron:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                break;
+
+            case WeaponType.large:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localScale = new Vector3(3f, 3f, 3f);
                 break;
         }
     }
