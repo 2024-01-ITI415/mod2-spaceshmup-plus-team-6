@@ -411,6 +411,8 @@ MonoBehaviour:
   powerUpFrequency: 01000000010000000200000006000000
   tmp: {fileID: 323845909}
   bossScore: 200
+  bossPrefab: {fileID: 6521763772826126970, guid: a455f3cce0da1c644bd7915dcc432b81,
+    type: 3}
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0

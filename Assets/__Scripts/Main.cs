@@ -23,11 +23,13 @@ public class Main : MonoBehaviour {
     };
     public TextMeshProUGUI tmp;
     public float bossScore;
+    public GameObject bossPrefab;
 
     private BoundsCheck bndCheck;
     
     private bool isBossMode = false;
     private int totalScore;
+    private bool bossSpawned = false;
 
 
     public void ShipDestroyed( Enemy e)
@@ -54,6 +56,13 @@ public class Main : MonoBehaviour {
 
             // Set it to the position of the destroyed ship
             pu.transform.position = e.transform.position;
+        }
+
+        if (e.CompareTag("Boss"))
+        {
+            isBossMode = false;
+            bossSpawned = false;
+            Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
         }
         //score += e.score;
         //string strScore = score.ToString();
@@ -149,14 +158,33 @@ public class Main : MonoBehaviour {
                 isBossMode = true;
             }
         }
-        if (isBossMode)
+        if (isBossMode && bossSpawned == false)
         {
+            CancelInvoke("SpawnEnemy");
             foreach(var enemy in enemies)
             {
                 Destroy(enemy);
             }
+
+            //spawn boss once and set bossSpawned to true
+
+            spawnBoss();
+            bossSpawned = true;
             
             //print("Poggers");
         }
+    }
+
+    public void spawnBoss()
+    {
+        GameObject bossGO = Instantiate(bossPrefab);
+
+        Vector3 pos = Vector3.zero;
+
+        pos.y = bndCheck.camHeight;
+
+        bossGO.transform.position = pos;
+
+
     }
 }
