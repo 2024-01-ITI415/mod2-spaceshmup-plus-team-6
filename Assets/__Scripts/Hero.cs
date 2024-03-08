@@ -90,7 +90,6 @@ public class Hero : MonoBehaviour {
         else if (go.tag == "Boss")
         {
             shieldLevel--;
-            Destroy(go);
         }
         else if (go.tag == "PowerUp")
         {

@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b31fbcc63718234ebac65f6bb44d9a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 1000
   fireRate: 0.3
   health: 50
   score: 500
@@ -485,6 +485,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  moveDuration: 4
 --- !u!114 &-1405029549793587894
 MonoBehaviour:
   m_ObjectHideFlags: 0
