@@ -18,7 +18,8 @@ public enum WeaponType
     laser, // [NI] Damage over time
     shield, // Raise shieldLevel
     tron,
-    large
+    large,
+    bomb
 }
 
 /// <summary>

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Hero : MonoBehaviour {
     static public Hero S; // Singleton
@@ -14,6 +16,8 @@ public class Hero : MonoBehaviour {
     public GameObject projectilePrefab;
     public float projectileSpeed = 40;
     public Weapon[] weapons;
+    public int bombcount = 0;
+    public GameObject bombPrefab;
 
     [Header("Set Dynamically")]
     [SerializeField]
@@ -105,6 +109,11 @@ public class Hero : MonoBehaviour {
         {
             case WeaponType.shield:
                 shieldLevel++;
+                break;
+
+            case WeaponType.bomb:
+                bombcount = 1;
+                GameObject bomb = Instantiate(bombPrefab);
                 break;
 
             default:
