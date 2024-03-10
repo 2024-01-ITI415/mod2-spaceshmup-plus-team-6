@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Main : MonoBehaviour {
 
@@ -16,13 +19,27 @@ public class Main : MonoBehaviour {
     public GameObject prefabPowerUp;
     public WeaponType[] powerUpFrequency = new WeaponType[]
     {
-        WeaponType.blaster, WeaponType.blaster, WeaponType.spread, WeaponType.shield
+        WeaponType.blaster, WeaponType.blaster, WeaponType.spread, WeaponType.shield, WeaponType.tron, WeaponType.large, WeaponType.bomb
     };
+    public TextMeshProUGUI tmp;
+    public float bossScore;
+    public GameObject bossPrefab;
 
     private BoundsCheck bndCheck;
 
+    private bool isBossMode = false;
+    private int totalScore;
+    private bool bossSpawned = false;
+
     public void ShipDestroyed( Enemy e)
     {
+        //add score for use in the code
+        totalScore += e.score;
+
+        print(totalScore);
+        //add score to the UI
+        tmp.text = "Score: " + totalScore.ToString();
+
         // Potentially generate a PowerUp
         if (Random.value <= e.powerUpDropChance)
         {
@@ -39,6 +56,16 @@ public class Main : MonoBehaviour {
             // Set it to the position of the destroyed ship
             pu.transform.position = e.transform.position;
         }
+
+        if (e.CompareTag("Boss"))
+        {
+            isBossMode = false;
+            bossSpawned = false;
+            Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
+        }
+        //score += e.score;
+        //string strScore = score.ToString();
+        //tmp.SetText("Score: " + strScore);
     }
 
     private void Awake()
@@ -114,5 +141,46 @@ public class Main : MonoBehaviour {
         // This returns a new WeaponDefinition with a type of WeaponType.none,
         // which means it has failed to find the right WeaponDefinition
         return new WeaponDefinition();
+    }
+
+    public void FixedUpdate()
+    {
+        //get all GameObjects tagged enemy
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        //if the score reaches a multiple of number
+        if (totalScore > 0)
+        {
+            if (totalScore % bossScore == 0)
+            {
+                isBossMode = true;
+            }
+        }
+        if (isBossMode && bossSpawned == false)
+        {
+            CancelInvoke("SpawnEnemy");
+            foreach (var enemy in enemies)
+            {
+                Destroy(enemy);
+            }
+
+            //spawn boss once and set bossSpawned to true
+
+            spawnBoss();
+            bossSpawned = true;
+
+            //print("Poggers");
+        }
+    }
+
+    public void spawnBoss()
+    {
+        GameObject bossGO = Instantiate(bossPrefab);
+
+        Vector3 pos = Vector3.zero;
+
+        pos.y = bndCheck.camHeight;
+
+        bossGO.transform.position = pos;
+
     }
 }
